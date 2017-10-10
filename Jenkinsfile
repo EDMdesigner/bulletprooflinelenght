@@ -36,9 +36,7 @@ pipeline {
 				branch "master"
 			}
 			steps {
-				withNPM(npmrcConfig:'npmrc-private') {
-					sh 'npm publish'
-				}
+				sh 'npm publish'
 			}
 		}
 	}
