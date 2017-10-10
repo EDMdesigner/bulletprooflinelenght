@@ -13,16 +13,16 @@ module.exports = function(dependencies) {
 		if(line.length < hardLimit) {
 			return line;
 		}
-		console.log(line.length);
+		// console.log(line.length);
 		if (/(<[^>]+>([^<]*)?)+/.test(line)) {
-			console.log("This is a html line");
+			// console.log("This is a html line");
 			return splitHTMLLine(line, hardLimit);
 		}
 		if (/(([^\{])+\{[^\{\}]+\} *$)+/.test(line)) {
-			console.log("This is a css line");
+			// console.log("This is a css line");
 			return splitCSSLine(line, hardLimit);
 		}
-		console.log("This is an undefined format line");
+		// console.log("This is an undefined format line");
 		return line;
 	}
 

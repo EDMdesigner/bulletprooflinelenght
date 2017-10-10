@@ -1,6 +1,6 @@
 {
   "name": "bulletprooflinelength",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "HTML-safe line-breaker",
   "main": "src/bulletproofLineLength.js",
   "scripts": {
