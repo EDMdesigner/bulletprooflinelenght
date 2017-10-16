@@ -1,0 +1,75 @@
+---
+layout: default
+---
+
+<script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+
+<div class="home">
+  
+  <h2>Generate bulletproof line for email from regular lists</h2>
+  
+  <p>
+    A universal tool to break long rows in a html file without causing any change in the output view.
+  </p>
+  
+  <h3>Paste your email HTML here</h3>
+  <div>
+    <textarea id="htmlTextarea"></textarea>
+  </div>
+  <div>
+    <input type="number" id="maximalLineLength"/>
+  </div>
+  <button id="generateButton" onclick="generate()">Generate</button>
+  
+  <h3>The text version</h3>
+  <div>
+    <textarea id="bulletproofLineTextarea"></textarea>
+  </div>
+
+  
+  <script src="js/bulletproofLineLength.js"></script>
+  <script>
+    function generate() {
+      var htmlTextarea = document.getElementById("htmlTextarea");
+      var maximalLineLength = document.getElementById("maximalLineLength");
+      var bulletproofLineTextarea = document.getElementById("bulletproofLineTextarea");
+
+      bulletproofLineTextarea.value = bulletproofLineLength(htmlTextarea.value, Number(maximalLineLength.value));
+      console.log(Number(maximalLineLength.value));
+
+      ga("send", "event", "generate");
+    }
+
+    var generateButton = document.getElementById("generateButton");
+  </script>
+
+  <h3>CommonJS: Node.js / Browserify</h3>
+
+  {% highlight bash %}
+    npm install bulletprooflist --save
+  {% endhighlight %}
+
+  {% highlight javascript %}
+    var createbulletprooflist = require("bulletprooflist");
+    var yourHtml = "<h1>Your HTML</h1><ul><li>goes</li><li>here.</li></ul>";
+
+    var bulletprooflist = createbulletprooflist(yourHtml);
+  {% endhighlight %}
+
+  <h3>Vanilla JS</h3>
+  {% highlight html %}
+    <script src="bulletprooflist.js"></script>
+    <script>
+      var yourHtml = "<h1>Your HTML</h1><ul><li>goes</li><li>here.</li></ul>";
+      var bulletprooflist = createbulletprooflist(yourHtml);
+    </script>
+  {% endhighlight %}
+
+  <h3>AMD: RequireJS</h3>
+  {% highlight javascript %}
+    define(["bulletprooflist"], function(createbulletprooflist) {
+      var yourHtml = "<h1>Your HTML</h1><ul><li>goes</li><li>here.</li></ul>";
+      var bulletprooflist = createbulletprooflist(yourHtml);
+    });
+  {% endhighlight %}
+</div>
