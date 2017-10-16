@@ -33,6 +33,42 @@ var sourceFiles = [
 	"src/**/*.js"
 ];
 
+superGulp.taskTemplates.initFrontendTasks({
+	packageJson: packageJson,
+	coverage: 70,
+	files: {
+		js: jsFiles,
+		json: jsonFiles,
+		spec: specFiles,
+		source: sourceFiles
+	},
+	tasks: {
+		copy: {
+			common: [
+				{ files: "./img/*", dest: "./dist/img/"},
+				{ files: "./lib/**/*", dest: "./dist/lib/"},
+				{ files: "./example/fonts/*", dest: "./dist/lib/fonts/"},
+				{ files: "./css/*", dest: "./dist/"}
+			],
+			dev: [
+				{ files: "./example/css/*", dest: "./dist/"},
+				{ files: "./example/index.html", dest: "./dist/"},
+				{ files: "./example/img/*", dest: "./dist/img/"},
+			]
+		},
+		js: {
+			common: [
+				{
+					entries: ["./src/bulletproofLineLength.js"],
+					outputFileName: "bulletproofLineLength.js",
+					standaloneName: "bulletproofLineLength",
+					destFolder:  "./docs/js/"
+				}
+			]
+		}
+	}
+});
+
 superGulp.taskTemplates.initBackendTasks({
 	packageJson: packageJson,
 	coverage: 70,
