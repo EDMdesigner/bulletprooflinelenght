@@ -1,0 +1,40 @@
+---
+layout: default
+---
+
+<div class="home">
+  
+  <h2>Generate bulletproof line for email from regular lists</h2>
+  
+  <p>
+    A universal tool to break long rows in a html file without causing any change in the output view.
+  </p>
+  
+  <h3>Paste your email HTML here</h3>
+  <div>
+    <textarea id="htmlTextarea"></textarea>
+  </div>
+  <div>
+    <input type="number" placeholder="The maximal line length" id="maximalLineLength"/>
+  </div>
+  <button id="generateButton" onclick="generate()">Generate</button>
+  
+  <h3>The text version</h3>
+  <div>
+    <textarea id="bulletproofLineTextarea"></textarea>
+  </div>
+
+  
+  <script src="js/bulletproofLineLength.js"></script>
+  <script>
+    function generate() {
+      var htmlTextarea = document.getElementById("htmlTextarea");
+      var maximalLineLength = document.getElementById("maximalLineLength");
+      var bulletproofLineTextarea = document.getElementById("bulletproofLineTextarea");
+
+      bulletproofLineTextarea.value = bulletproofLineLength(htmlTextarea.value, Number(maximalLineLength.value));
+
+      ga("send", "event", "generate");
+    }
+  </script>
+</div>
