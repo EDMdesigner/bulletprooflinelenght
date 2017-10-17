@@ -13,7 +13,7 @@ description: > # this means to ignore newlines until "baseurl:"
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://edmdesigner.github.io/bulletprooflinelength/" # the base hostname & protocol for your site
 demo: "https://edmdesigner.github.io/bulletprooflinelength/"
-gaCode: UA-42954042-7
+gaCode: UA-42954042-12
 facebook_username: edmdesigner
 twitter_username: EDMdesigner
 github_username: EDMdesigner
