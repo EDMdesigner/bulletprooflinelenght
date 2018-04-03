@@ -18,7 +18,7 @@ function splitCSSLine(line, hardLimit) {
 	for (var i = 1; i < parts.length; i += 1) {
 		var lastIndex = finalStrings.length - 1;
 		if (finalStrings[lastIndex].length + parts[i].length < hardLimit) {
-			finalStrings[lastIndex] = finalStrings[lastIndex] + " " + parts[i];
+			finalStrings[lastIndex] = finalStrings[lastIndex] + parts[i];
 		} else {
 			finalStrings.push(parts[i].replace(/^\s/, ""));
 		}
